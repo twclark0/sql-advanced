@@ -267,7 +267,7 @@ select * from users inner join purchases using(user_handle);
 - `Do` is an anonymous code block (transient anonymous function, with no parameters, returning void)
 - "Blocks" has two sections, declarations and body. Declarations is optional, where variables are declared.
 - Keywords: `do`, `$$`, `declare`, `begin`, `end`, `end if`, `:=`
-- Can create subblocks within another block
+- Can create sub-blocks within another block
 
 ###### Basic example
 
@@ -308,7 +308,7 @@ begin
 end $$;
 ```
 
-###### Functions around variables
+###### Functions around variables referencing another variable
 
 ```sql
 do $$
@@ -317,7 +317,55 @@ declare
     someDate date := '2019-04-01';
     createDate date := least('2019-01-12', someDate);
 begin
-    select create_date into createDate from users where user_handle = handle;
     insert into members values (createDate, null, handle, 'Jason', 'Anderson');
 end $$;
+```
+
+### Lesson 11 - Conditional Returns with case - when - then - else - end
+
+- Can be used wherever an expression is valid
+- If no else then returns `NULL`
+- Close `case` with `end`
+
+```sql
+select first_name,
+    case when status is null then 'member' else status end
+from users;
+```
+
+```sql
+select first_name, status
+from users
+where case when status is not null then create_date > '2019-01-01' end;
+```
+
+### Lesson 12 - Handle nulls with coalesce
+
+- Returns first of arguments that is not `Null`. `Null` is returned when all are `Null`.
+
+```sql
+select first_name, coalesce(status, 'member')
+from users;
+```
+
+### Lesson 13 - Perform Multiple Steps in One with Transactions
+
+- Keywords are `begin`, `commit`, `rollback`, `savepoint`, `start transaction`
+- If any fail then all rollback by default
+
+```sql
+start transaction;
+insert into purchases values ('2019-05-20', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', uuid_generate_v4(), 1);
+update purchases set quantity = 5;
+commit;
+```
+
+```sql
+begin;
+    insert into purchases values ('2019-10-10', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', uuid_generate_v4(), 1);
+    savepoint insert_save_point;
+    insert into purchases values ('2019-05-20', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', uuid_generate_v4(), 1);
+    rollback to insert_save_point;
+    update purchases set quantity = 8;
+commit;
 ```
