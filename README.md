@@ -10,6 +10,27 @@ email text
 
 ```
 
+```sql
+create table purchases (
+date date,
+user_handle uuid,
+sku uuid,
+quantity int
+);
+
+```
+
+```sql
+create table members (
+start_date date,
+end_date date,
+user_handle uuid,
+first_name text,
+email text
+);
+
+```
+
 ## Lesson 1 Bulk Insert / Update
 
 #### Insert
@@ -368,4 +389,55 @@ begin;
     rollback to insert_save_point;
     update purchases set quantity = 8;
 commit;
+```
+
+### Lesson 14 - SQL Pattern Matching & Regular Expressions
+
+- Keywords: `like`, `ilike`, `not like`, `similar to`, `not similar to`, `%`, `_`
+- `ilike` is similar to `like`, just case insensitive
+- Succeeds only if its pattern matches the _entire string_. Most Regex will match on parts of a string
+- An underscore matches any single character
+- Percent matches any sequence of zero or more characters
+- `Similar to` has more metacharacters support (`|`,`*`, `+`,`?`, `()`)
+
+```sql
+select * from users where first_name like 'tyler';
+```
+
+```sql
+select * from users where first_name like '%t';
+```
+
+```sql
+select * from users where first_name like '_y___';
+```
+
+```sql
+select * from users where first_name like '_y%';
+```
+
+```sql
+select * from users where first_name not like 'tyler';
+```
+
+```sql
+select * from users where first_name similar to '(t|m)%';
+```
+
+```sql
+select * from users where first_name similar to 'tyler+';
+```
+
+### Lesson 15 - SQL Aggregate Inline filter
+
+- Enables filtering on aggregate functions
+
+```sql
+select count(*) as total, count(*) as filtered from users where first_name = 'tyler';
+```
+
+vs.
+
+```sql
+select count(*) as total, count(*) filter (where first_name = 'tyler') as filtered from users;
 ```
