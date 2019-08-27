@@ -103,9 +103,12 @@ select now()::date;
 ```
 
 ```sql
-insert into users (create_date, user_handle, last_name, first_name) values (now(), uuid_generate_v4(), 'jones', 'michelle');
 
-select create_date from users u inner join (select now() as date) n on u.create_date = n.date;
+create temporary table users_temp (create_date date, user_handle uuid, first_name text, last_name text, email text);
+
+insert into users_temp (create_date, user_handle, last_name, first_name) values (now(), uuid_generate_v4(), 'jones', 'michelle');
+
+select create_date from users_temp u inner join (select now() as date) n on u.create_date = n.date;
 
 ```
 
