@@ -59,6 +59,10 @@ drop table users_temp;
 ## Lesson 2 On Conflicts Do Stuff
 
 ```sql
+insert into users (user_handle, first_name, last_name, email) values ('57bd72d4-7115-11e9-a923-1681be663d3e', 'Lucie', 'Jones', 'Lucie-Jones@gmail.com');
+```
+
+```sql
 select * from users where first_name = 'Lucie';
 ```
 
