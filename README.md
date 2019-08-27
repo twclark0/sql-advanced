@@ -206,6 +206,10 @@ select * from dates;
 - Here's the problem: Show a member's current email as well as the start_date of when they originally bought a license. So we need to get info from a user's earliest start date and latest start date.
 
 ```sql
+select distinct on (user_handle) email, min(start_date) from members group by email, user_handle;
+```
+
+```sql
 create table members (
     start_date date,
     end_date date,
