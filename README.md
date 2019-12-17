@@ -48,6 +48,39 @@ cd sql-advanced
 
 ```
 
+Once you have postgres running locally, run the following commands:
+
+```sql
+create table users (
+user_handle uuid Primary key,
+first_name text,
+last_name text,
+email text
+);
+
+```
+
+```sql
+create table purchases (
+date date,
+user_handle uuid,
+sku uuid,
+quantity int
+);
+
+```
+
+```sql
+create table members (
+start_date date,
+end_date date,
+user_handle uuid,
+first_name text,
+email text
+);
+
+```
+
 ## Working through it
 
 I will have at least one exercise for each lesson. All of the exercises will be in the `exercises` directory. At the top of each exercise is a description of what the current state of the code is in and what the goal state is supposed to look like. So before you have any questions please make sure you have read the description at the top of the file thoroughly.
