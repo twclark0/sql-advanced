@@ -3,6 +3,16 @@
 - Keywords are `begin`, `commit`, `rollback`, `savepoint`, `start transaction`
 - If any fail then all rollback by default
 
+#### Syntax
+
+- `begin`
+- `commit`
+- `rollback`
+- `savepoint`
+- `start transaction` (optional)
+
+#### Exercise
+
 ```sql
 start transaction;
 insert into purchases values ('2019-05-20', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', uuid_generate_v4(), 1);

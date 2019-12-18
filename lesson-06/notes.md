@@ -1,12 +1,16 @@
 ## CTEs in SQL
 
-### CTEs
+### CTEs (Common Table Expressions)
 
 - CTE: Common Table Expression
 - Created using `with` (thought of as defining temporary tables)
 - Can use any CRUD statement within the `with` which can be within any CRUD query
 
-##### Basic implementation
+#### Syntax
+
+`with cte_name as ( [select, delete query] )`
+
+#### Exercise
 
 ```sql
 

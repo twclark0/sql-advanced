@@ -5,7 +5,21 @@
 - Most valuable of all is the estimated statement execution cost (total time is what matters)
 - **Explain** just shows plan, **Analyze** actually runs query
 
-### Examples:
+#### Syntax
+
+`EXPLAIN [ ( option [, ...] ) ] statement`
+
+`EXPLAIN [ ANALYZE ][ verbose ] statement`
+
+- Option can be one of
+
+  `ANALYZE [ boolean ]`
+  `VERBOSE [ boolean ]`
+  `COSTS [ boolean ]`
+  `BUFFERS [ boolean ]`
+  `FORMAT { TEXT | XML | JSON | YAML }`
+
+#### Exercise
 
 - Seq scan
 

@@ -1,6 +1,13 @@
 ## Casting Types in SQL
 
-- Using the cast
+- Two types can be binary coercible, which means that the conversion can be performed "for free" without invoking any function.
+- This requires that corresponding values use the same internal representation.
+
+#### Syntax
+
+`CAST (source_type AS target_type) WITH FUNCTION function_name (argument_type [, ...]) [ AS ASSIGNMENT | AS IMPLICIT ]`
+
+#### Exercise
 
 ```sql
 cast (expression as target_type)

@@ -4,6 +4,12 @@
 - If no else then returns `NULL`
 - Close `case` with `end`
 
+#### Syntax
+
+`CASE WHEN condition THEN result [WHEN ...] [ELSE result] END`
+
+#### Exercise
+
 ```sql
 select first_name,
     case when status is null then 'member' else status end

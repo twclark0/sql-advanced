@@ -7,6 +7,8 @@ select first_name, coalesce(status, 'member')
 from users;
 ```
 
+---
+
 ### Shorthand Join ons with Using statement
 
 - Instead of explicitly defining column names, if they are the same, you can just state it once within the clause
@@ -17,11 +19,13 @@ from users;
 select * from users u inner join purchases p on u.user_handle = p.user_handle;
 ```
 
-####### To
+###### To
 
 ```sql
 select * from users inner join purchases using(user_handle);
 ```
+
+---
 
 ### Paginate Results with Offset and Limit
 
@@ -33,6 +37,8 @@ select * from users limit 1 offset 1;
 
 - Offset rows are still calculated so large offsets can be inefficient
 - Make sure a order by is used to get a predictable result
+
+---
 
 ### SQL Pattern Matching & Regular Expressions
 
@@ -70,6 +76,8 @@ select * from users where first_name similar to '(t|m)%';
 ```sql
 select * from users where first_name similar to 'tyler+';
 ```
+
+---
 
 ### SQL Aggregate Inline filter
 

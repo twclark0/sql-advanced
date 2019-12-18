@@ -3,6 +3,12 @@
 - Used most of the time with a `group by` clause
 - `where` filters data BEFORE `group by`, `having` is filtering on groups of data
 
+#### Syntax
+
+`having` then aggregate
+
+#### Exercise
+
 ```sql
 insert into purchases values ('2019-02-02', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', uuid_generate_v4(), 1);
 insert into purchases values ('2019-02-03', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', uuid_generate_v4(), 2);

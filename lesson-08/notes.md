@@ -5,7 +5,12 @@
 - Keywords: `do`, `$$`, `declare`, `begin`, `end`, `end if`, `:=`
 - Can create sub-blocks within another block
 
-###### Basic example
+#### Syntax
+
+- Do: `DO [ LANGUAGE lang_name ] code`
+- Declare variables: `name [ CONSTANT ] type [ COLLATE collation_name ] [ NOT NULL ] [ { DEFAULT | := } expression ];`
+
+#### Exercise
 
 ```sql
 do $$
