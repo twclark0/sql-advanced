@@ -5,7 +5,11 @@ source material for my Advanced SQL workshop
 
 ## Why Should You Care About this Workshop?
 
-Let's face it, data powers the web. And I am not only talking about your twitter posts you see in your feed. I'm talking about analytics, artificial intelligence, and even weather forcasting is literally powered by data. Also, look at the rise in python over the last decade. It's recently overtaken JavaScript as the most popular programming language. Why you might ask? To handle complex data. This course is designed to take your basic sql CRUD (create, replace, update, delete) to the next level by learning more in-depth concepts.
+Let's face it, data powers the web. And I am not only talking about your twitter posts you see in your feed. I'm talking about analytics, artificial intelligence, and even weather forcasting is literally powered by data. Also, look at the rise in python over the last decade. It's recently overtaken JavaScript as the most popular programming language. 
+
+Why you might ask? To handle complex data. 
+
+This course is designed to take your basic sql CRUD (create, replace, update, delete) to the next level by learning more in-depth concepts.
 
 Even if you classify yourself as a frontend developer, I promise you this course will help you out in some point of your career. We become better frontend developers by learning more about how data is constructed and queried.
 
