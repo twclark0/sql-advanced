@@ -19,22 +19,12 @@ with dates as (select now() as date)
 select * from dates;
 ```
 
-##### Selecting real world
+##### Exercise: A member history table. Contains a record of every event of a member
 
-- Here's the problem: Show a member's current email as well as the start_date of when they originally bought a license. So we need to get info from a user's earliest start date and latest start date.
-
-```sql
-select distinct on (user_handle) email, min(start_date) from members group by email, user_handle;
-```
+1.  A Member's _current_ email (Email can change over the years)
+2.  Their start_date of when they originally bought a license
 
 ```sql
-create table members (
-    start_date date,
-    end_date date,
-    user_handle uuid,
-    first_name text,
-    email text
-);
 
 insert into members values ('2018-01-01',  '2019-01-01', '57bd8cd8-7115-11e9-a923-1681be663d3e', 'tyler', 'orignal@gmail.com');
 insert into members values ('2019-02-20', null, '57bd8cd8-7115-11e9-a923-1681be663d3e', 'joe', 'new@gmail.com');
