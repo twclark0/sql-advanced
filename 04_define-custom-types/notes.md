@@ -18,5 +18,5 @@ alter table users add column status user_status;
 ```
 
 ```sql
-update users set status = 'instructor' where first_name = 'tyler';
+update users set status = 'instructor' where first_name = 'Lucie';
 ```

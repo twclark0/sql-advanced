@@ -12,7 +12,8 @@ From postgres to csv
 
 Options:
 
-    `FORMAT format_name
+    ```sql
+    FORMAT format_name
     OIDS [ boolean ]
     DELIMITER 'delimiter_character'
     NULL 'null_string'
@@ -22,29 +23,15 @@ Options:
     FORCE_QUOTE { ( column_name [, ...] ) | * }
     FORCE_NOT_NULL ( column_name [, ...] )
     ENCODING 'encoding_name'
-    `
-
-#### Exercise:
+    ```
 
 #### Insert
 
 ```sql
-copy users(user_handle,first_name,last_name,email) FROM '/Users/tylerclark/Documents/projects/sql-advanced/sql-advanced-users.csv' DELIMITER ',' CSV HEADER;
+copy users (user_handle,first_name,last_name,email) FROM '/Users/tylerclark/Documents/projects/sql-advanced/sql-advanced-users.csv' DELIMITER ',' CSV HEADER;
 ```
-
-#### Update
 
 ```sql
-create temporary table users_temp (user_handle uuid, first_name text, last_name text, email text);
-
-copy users_temp(user_handle,first_name,last_name,email) FROM '/Users/tylerclark/Documents/projects/sql-advanced/sql-advanced-users.csv' DELIMITER ',' CSV HEADER;
-
-update users set email = users_temp.email from users_temp where users.user_handle = users_temp.user_handle;
-
-drop table users_temp;
+copy users (user_handle,first_name,last_name,email) to '/Users/tylerclark/Documents/projects/sql-advanced/sql-advanced-users-copy.csv' DELIMITER ',' CSV HEADER;
 
 ```
-
-- temp tables only exist for the duration of a database session.
-- Can use `temp` or `temporary`
-- `DROP TABLE temp_table_name;`

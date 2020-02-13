@@ -12,7 +12,7 @@
 
 - Where conflict_target can be one of:
 
-`( { index_column_name | ( index_expression ) } [ COLLATE collation ] [ opclass ] [, ...] ) [ WHERE index_predicate ] ON CONSTRAINT constraint_name`
+`( { index_column_name | ( index_expression ) } ) ON CONSTRAINT constraint_name`
 
 - conflict_action is one of:
 

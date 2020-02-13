@@ -50,6 +50,10 @@ select * from users limit 1 offset 1;
 - `Similar to` has more metacharacters support (`|`,`*`, `+`,`?`, `()`)
 
 ```sql
+insert into users values (uuid_generate_v4(), 'tyler', 'clark', null, null);
+```
+
+```sql
 select * from users where first_name like 'tyler';
 ```
 

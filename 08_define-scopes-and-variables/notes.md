@@ -5,11 +5,6 @@
 - Keywords: `do`, `$$`, `declare`, `begin`, `end`, `end if`, `:=`
 - Can create sub-blocks within another block
 
-#### Syntax
-
-- Do: `DO [ LANGUAGE lang_name ] code`
-- Declare variables: `name [ CONSTANT ] type [ COLLATE collation_name ] [ NOT NULL ] [ { DEFAULT | := } expression ];`
-
 #### Exercise
 
 ```sql
@@ -52,12 +47,13 @@ end $$;
 ###### Functions around variables referencing another variable
 
 ```sql
-do $$
+$$
 declare
     handle uuid := '3ebf30fd-f524-4ec6-b864-9cb2ae57f5ed';
     someDate date := '2019-04-01';
     createDate date := least('2019-01-12', someDate);
 begin
     insert into members values (createDate, null, handle, 'Jason', 'Anderson');
-end $$;
+end;
+$$
 ```
