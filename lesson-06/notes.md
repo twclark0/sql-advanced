@@ -10,7 +10,7 @@
 
 `with cte_name as ( [select, delete query] )`
 
-#### Exercise
+### Exercises
 
 ```sql
 
@@ -19,7 +19,7 @@ with dates as (select now() as date)
 select * from dates;
 ```
 
-##### Exercise: A member history table. Contains a record of every event of a member
+#### A member history table. Contains a record of every event of a member
 
 1.  A Member's _current_ email (Email can change over the years)
 2.  Their start_date of when they originally bought a license

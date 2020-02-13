@@ -17,7 +17,7 @@ from users;
 ```
 
 ```sql
-select first_name, status
-from users
-where case when status is not null then create_date > '2019-01-01' end;
+select first_name, start_date
+from members
+where case when email is not null then start_date > '2019-01-01' end;
 ```
